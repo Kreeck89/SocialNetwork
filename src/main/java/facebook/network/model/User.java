@@ -6,8 +6,8 @@ public class User {
     private String surName;
     private String cityBorn;
     private String nickName;
+    private String password;
     private int age;
-    private int hight;
 
     public User() {
     }
@@ -16,6 +16,15 @@ public class User {
         this.name = name;
         this.surName = surName;
         this.nickName = nickName;
+    }
+
+    public User(String name, String surName, String cityBorn, String nickName, String password, int age) {
+        this.name = name;
+        this.surName = surName;
+        this.cityBorn = cityBorn;
+        this.nickName = nickName;
+        this.password = password;
+        this.age = age;
     }
 
     public String getName() {
@@ -58,22 +67,25 @@ public class User {
         this.age = age;
     }
 
-    public int getHight() {
-        return hight;
+    public String getPassword() {
+        return password;
     }
 
-    public void setHight(int hight) {
-        this.hight = hight;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
         return "name:" + name
-                + "\nsurName:" + surName
-                + "\ncityBorn:" + cityBorn
-                + "\nnickName:" + nickName
-                + "\nage:" + age
-                + "\nhight:" + hight
+                + "\n"
+                + "surName:" + surName
+                + "\n"
+                + "cityBorn:" + cityBorn
+                + "\n"
+                + "nickName:" + nickName
+                + "\n"
+                + "age:" + age
                 + "\n";
     }
 }
