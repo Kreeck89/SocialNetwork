@@ -2,6 +2,7 @@ package facebook.network.service;
 
 import facebook.network.date.Datebase;
 import facebook.network.model.User;
+import vertex.counter.StringLength;
 import vertex.counter.VertexCounter;
 
 public class UserService {
@@ -26,6 +27,10 @@ public class UserService {
         VertexCounter vertexCounter = new VertexCounter();
         int unicode = vertexCounter.countUnicode("test");
         System.out.println(unicode);
+
+        StringLength stringLength = new StringLength();
+        int length = stringLength.countLengthOfString("Privet");
+        System.out.println(length);
     }
 
     private static User getByName(String name) {
