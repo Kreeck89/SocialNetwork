@@ -1,7 +1,10 @@
 package facebook.testLibrary;
 
 import homeLibWithInt.HomeLibInteger;
+import homeLibWithScan.HomeLibScan;
 import homeLibWithString.HomeLibString;
+
+import java.util.Arrays;
 
 public class HowWorkMyLibrary {
 
@@ -9,6 +12,7 @@ public class HowWorkMyLibrary {
 
         HomeLibString libString = new HomeLibString();
         HomeLibInteger libInteger = new HomeLibInteger();
+        HomeLibScan libScan = new HomeLibScan();
         int unicode = libString.unicodeOfString("String for test");
         System.out.println(unicode);
 
@@ -27,5 +31,8 @@ public class HowWorkMyLibrary {
 
         double costPresent = 12080.70;
         System.out.println(libInteger.countMoneyForPresent(costPresent));
+
+        int arrayLength = 5;
+        System.out.println(Arrays.toString(libScan.createArrayList(arrayLength)));
     }
 }
