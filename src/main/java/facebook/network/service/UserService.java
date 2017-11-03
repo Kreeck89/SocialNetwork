@@ -5,6 +5,8 @@ import facebook.network.model.User;
 import vertex.counter.StringLength;
 import vertex.counter.VertexCounter;
 
+import java.util.List;
+
 public class UserService {
 
     public static void main(String[] args) {
@@ -14,11 +16,11 @@ public class UserService {
         System.out.println("getByName is: \n" + getByName(name));
         String surName = "Bromov";
         System.out.println("getBySurname is: \n" + getBySurname(surName));
-        String city = Datebase.getUsers()[2].getCityBorn();
+        String city = Datebase.getUsers().get(2).getCityBorn();
         System.out.println(getByCityBorn(city));
         String nickName = "Mad";
         System.out.println(getByNickName(nickName));
-        String pass = "12345";
+        String pass = "123";
         getByPassword(pass);
         int ages = 20;
         System.out.println(getByAge(ages));
@@ -34,8 +36,8 @@ public class UserService {
     }
 
     private static User getByName(String name) {
-        User[] users = Datebase.getUsers();
-        for (User user : users) {
+        List<User> list = Datebase.getUsers();
+        for (User user : list) {
             if (name.equals(user.getName())) {
                 return user;
             }
@@ -44,8 +46,8 @@ public class UserService {
     }
 
     private static User getBySurname(String name) {
-        User[] users = Datebase.getUsers();
-        for (User user : users) {
+        List<User> list = Datebase.getUsers();
+        for (User user : list) {
             if (name.equals(user.getSurName())) {
                 return user;
             }
@@ -54,8 +56,8 @@ public class UserService {
     }
 
     private static String getByCityBorn(String city) {
-        User[] users = Datebase.getUsers();
-        for (User user : users) {
+        List<User> list = Datebase.getUsers();
+        for (User user : list) {
             if (city.equals(user.getCityBorn())) {
                 return user.getName() + " You are my Countryman!";
             }
@@ -64,8 +66,8 @@ public class UserService {
     }
 
     private static String getByNickName(String nickName) {
-        User[] users = Datebase.getUsers();
-        for (User user : users) {
+        List<User> list = Datebase.getUsers();
+        for (User user : list) {
             if (nickName.equals(user.getNickName())) {
                 String s = user.getName() + " " + user.getSurName();
                 return s;
@@ -75,19 +77,20 @@ public class UserService {
     }
 
     private static void getByPassword(String password) {
-        User[] users = Datebase.getUsers();
-        for (User user : users) {
+        List<User> list = Datebase.getUsers();
+        for (User user : list) {
             if (password.equals(user.getPassword())) {
-                getAllusers();
+                System.out.println(list);
                 break;
+            } else {
+                System.out.println("You Entered wrong number!");
             }
         }
-        System.out.println("You Entered wrong number!");
     }
 
     private static User getByAge(int age) {
-        User[] users = Datebase.getUsers();
-        for (User user : users) {
+        List<User> list = Datebase.getUsers();
+        for (User user : list) {
             if (age < user.getAge()) {
                 return user;
             }
@@ -95,24 +98,22 @@ public class UserService {
         return null;
     }
 
-
-
     private static void getAllusers() {
-        User[] users = Datebase.getUsers();
+        List<User> list = Datebase.getUsers();
         System.out.println("It is All users from Datebase:");
-        for (User user : users) {
+        for (User user : list) {
             System.out.println(user);
         }
     }
 
-    private static void   getFirst() {
+    private static void getFirst() {
         System.out.println("First User is: ");
-        System.out.println(Datebase.getUsers()[0]);
+        System.out.println(Datebase.getUsers().get(1));
 
     }
 
     private static void getLast() {
         System.out.println("Last User is: ");
-        System.out.println(Datebase.getUsers()[Datebase.getUsers().length - 1]);
+        System.out.println(Datebase.getUsers().get(Datebase.getUsers().size() - 1));
     }
 }
